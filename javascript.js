@@ -13,3 +13,9 @@ function getComputerChoice() {
         return output;
     }
 }
+let userInput = prompt("Let's Play Rock Paper Scissors! What will you choose?");
+function getHumanChoice (input){
+    let result = input.charAt(0).toUpperCase() + input.slice(1).toLowerCase();
+    return result;
+}
+
