@@ -38,20 +38,28 @@ function playRound(humanChoice, computerChoice){
       }
 }
 
-while (humanScore < 5 && computerScore < 5){
-  const humanSelection = getHumanChoice();
-  const computerSelection = getComputerChoice();
-  
-  console.log("You Chose : " + humanSelection);
-  console.log("Computer Chose : " + computerSelection);
-  console.log(playRound(humanSelection, computerSelection));
-  console.log("You win:" + humanScore + ", Computer win: " + computerScore);
-}
+function playGame(){
+    if (humanScore < 5 && computerScore < 5){
+      const humanSelection = getHumanChoice();
+      const computerSelection = getComputerChoice();
 
-if (humanScore >= 5){
-  console.log("Congratulation, you WIN!");
-}
-else {
-  console.log("Oh no, you LOSE!");
-}
+      playRound(humanSelection, computerSelection);
+
+      console.log("You Chose : " + humanSelection);
+      console.log("Computer Chose : " + computerSelection);
+      console.log(playRound());
+      console.log("You win:" + humanScore + ", Computer win: " + computerScore);
+      playGame();
+    }
+    else if (humanScore >= 5){
+      console.log("Congratulation, you WIN!");
+    }
+    else {
+      console.log("Oh no, you LOSE!");
+    }
+} 
+
+playGame();
+  
+
  
