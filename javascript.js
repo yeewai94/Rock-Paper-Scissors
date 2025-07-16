@@ -13,9 +13,10 @@ function getComputerChoice() {
         return output;
     }
 }
-let userInput = prompt("Let's Play Rock Paper Scissors! What will you choose?");
-function getHumanChoice (input){
-    let result = input.charAt(0).toUpperCase() + input.slice(1).toLowerCase();
+
+function getHumanChoice (){
+  let userInput = prompt("Let's Play Rock Paper Scissors! What will you choose?");
+    let result = userInput.charAt(0).toUpperCase() + userInput.slice(1).toLowerCase();
     return result;
 }
 
@@ -33,14 +34,24 @@ function playRound(humanChoice, computerChoice){
         return "You win!";
       } else {
         computerScore++;
-        return "Machine wins!";
+        return "Computer wins!";
       }
 }
 
-const humanSelection = getHumanChoice(userInput);
-const computerSelection = getComputerChoice();
+while (humanScore < 5 && computerScore < 5){
+  const humanSelection = getHumanChoice();
+  const computerSelection = getComputerChoice();
+  
+  console.log("You Chose : " + humanSelection);
+  console.log("Computer Chose : " + computerSelection);
+  console.log(playRound(humanSelection, computerSelection));
+  console.log("You win:" + humanScore + ", Computer win: " + computerScore);
+}
 
-console.log("You Chose : " + humanSelection);
-console.log("Computer Chose : " + computerSelection)
-console.log(playRound(humanSelection, computerSelection))
-
+if (humanScore >= 5){
+  console.log("Congratulation, you WIN!");
+}
+else {
+  console.log("Oh no, you LOSE!");
+}
+ 
