@@ -38,7 +38,7 @@ function playRound(humanChoice, computerChoice){
 }
 
 function playGame(choice){
-  let humanSelection = getHumanChoice(choice.currentTarget.id);
+  let humanSelection = getHumanChoice(choice.target.id);
   let computerSelection = getComputerChoice();
 
   console.log("You Chose : " + humanSelection);
@@ -50,9 +50,15 @@ function playGame(choice){
 // const rock = document.querySelector("#rock").addEventListener("click", playGame);
 // const scissor = document.querySelector("#scissor").addEventListener("click", playGame);
 
-const button = document.querySelectorAll("button").forEach(selection => {
-  selection.addEventListener("click", playGame);
-})
+// const button = document.querySelectorAll("button").forEach(selection => {
+//   selection.addEventListener("click", playGame);
+// });
+
+document.querySelector("div").addEventListener("click", selection => {
+  if (selection.target.id === "paper" || selection.target.id === "rock" || selection.target.id === "scissor"){
+    playGame(selection);
+  };
+});
 
 
   
