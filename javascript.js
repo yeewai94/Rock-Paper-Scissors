@@ -46,10 +46,13 @@ function playGame(choice){
   console.log(playRound(humanSelection, computerSelection));
 };
 
-const paper = document.querySelector("#paper").addEventListener("click", playGame);
-const rock = document.querySelector("#rock").addEventListener("click", playGame);
-const scissor = document.querySelector("#scissor").addEventListener("click", playGame);
+// const paper = document.querySelector("#paper").addEventListener("click", playGame);
+// const rock = document.querySelector("#rock").addEventListener("click", playGame);
+// const scissor = document.querySelector("#scissor").addEventListener("click", playGame);
 
+const button = document.querySelectorAll("button").forEach(selection => {
+  selection.addEventListener("click", playGame);
+})
 
 
   
