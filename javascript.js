@@ -9,7 +9,7 @@ function getComputerChoice() {
         return output;
     }
     else {
-        let output = "Scissors";
+        let output = "Scissor";
         return output;
     }
 }
@@ -25,9 +25,9 @@ let computerScore = 0;
 function playRound(humanChoice, computerChoice){
     if (humanChoice === computerChoice) return "It's a tie!";
       else if (
-        (humanChoice === "Rock" && computerChoice === "Scissors") ||
+        (humanChoice === "Rock" && computerChoice === "Scissor") ||
         (humanChoice === "Paper" && computerChoice === "Rock") ||
-        (humanChoice === "Scissors" && computerChoice === "Paper")
+        (humanChoice === "Scissor" && computerChoice === "Paper")
       ) {
         humanScore++;
         return "You win!";
@@ -37,15 +37,18 @@ function playRound(humanChoice, computerChoice){
       }
 }
 
-const paper = document.querySelector("#paper");
-paper.addEventListener("click", function (event){
-  let humanSelection = getHumanChoice(event.currentTarget.id);
+function playGame(choice){
+  let humanSelection = getHumanChoice(choice.currentTarget.id);
   let computerSelection = getComputerChoice();
 
   console.log("You Chose : " + humanSelection);
   console.log("Computer Chose : " + computerSelection);
   console.log(playRound(humanSelection, computerSelection));
-})
+};
+
+const paper = document.querySelector("#paper").addEventListener("click", playGame);
+const rock = document.querySelector("#rock").addEventListener("click", playGame);
+const scissor = document.querySelector("#scissor").addEventListener("click", playGame);
 
 
 
