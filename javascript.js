@@ -38,7 +38,8 @@ function playRound(humanChoice, computerChoice){
 }
 
 function playGame(choice){
-  if (humanScore < 5 && computerScore < 5){
+  if (humanScore >= 5 || computerScore >= 5) return;
+
   let humanSelection = getHumanChoice(choice.target.id);
   let computerSelection = getComputerChoice();
   
@@ -61,14 +62,13 @@ function playGame(choice){
   gameRound.appendChild(gameResult);
   gameRound.appendChild(finalResult);
   
-  }
-  else if (humanScore = 5){
+  
+  if (humanScore === 5){
     alert("Human WIN, Computer LOSE!")
   }
-  else {
+  else if (computerScore === 5) {
     alert("Human LOSE, Computer WIN!")
   }
-
 };
 
 
