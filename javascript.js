@@ -62,8 +62,11 @@ function playGame(choice){
   gameRound.appendChild(finalResult);
   
   }
+  else if (humanScore = 5){
+    alert("Human WIN, Computer LOSE!")
+  }
   else {
-    alert("GAME OVER!")
+    alert("Human LOSE, Computer WIN!")
   }
 
 };
